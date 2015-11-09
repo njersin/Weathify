@@ -1,0 +1,69 @@
+{"spotifyplaylist":{
+	"Drizzle":{"user":"spotify",
+	           "playlist":"6NCfeirBIrZfYcs9kwnS3x"
+			   },
+	"Mist":{"user":"spotify",
+	        "playlist":"6NCfeirBIrZfYcs9kwnS3x"
+			},
+	"Fog":{"user":"spotify",
+	       "playlist":"6NCfeirBIrZfYcs9kwnS3x"
+		   },
+	"Haze":{"user":"spotify",
+	        "playlist":"6NCfeirBIrZfYcs9kwnS3x"
+			},
+	"Overcast":{"user":"spotify",
+	            "playlist":"6NCfeirBIrZfYcs9kwnS3x"
+				},
+	"Rain":{"user":"spotify",
+	        "playlist":"7CQunpJEHecknIyABfS8pP"
+			},
+	"Spray":{"user":"spotify",
+	         "playlist":"7CQunpJEHecknIyABfS8pP"
+			 },
+	"Showers":{"user":"spotify",
+	           "playlist":"7CQunpJEHecknIyABfS8pP"
+			   },
+	"Freezing":{"user":"spotify",
+	            "playlist":"67mbEfYTxSfO0px53W8zsL"
+				},
+	"Snow":{"user":"spotify",
+	        "playlist":"67mbEfYTxSfO0px53W8zsL"
+			},
+	"Ice":{"user":"spotify",
+	       "playlist":"67mbEfYTxSfO0px53W8zsL"
+		   },
+	"Hail":{"user":"spotify",
+	        "playlist":"6ejgjp55cJWGzcDOp4HpGC"
+			},
+	"Smoke":{"user":"spotify",
+	         "playlist":"6ejgjp55cJWGzcDOp4HpGC"
+			 },
+	"Volcanic Ash":{"user":"spotify",
+	                "playlist":"6ejgjp55cJWGzcDOp4HpGC"
+					},
+	"Dust":{"user":"spotify",
+	        "playlist":"6ejgjp55cJWGzcDOp4HpGC"
+			},
+	"Sand":{"user":"spotify",
+	        "playlist":"6ejgjp55cJWGzcDOp4HpGC"
+			},
+	"Thunderstorm":{"user":"spotify",
+	                "playlist":"6ejgjp55cJWGzcDOp4HpGC"
+					},
+	"Squalls":{"user":"spotify",
+	           "playlist":"6ejgjp55cJWGzcDOp4HpGC"
+			   },
+	"Funnel Cloud":{"user":"spotify",
+	                "playlist":"6ejgjp55cJWGzcDOp4HpGC"
+					},
+	"Clear":{"user":"myplay.com",
+	         "playlist":"1h90L3LP8kAJ7KGjCV2Xfd"
+			 },
+	"Partly Cloudy":{"user":"myplay.com",
+	                 "playlist":"1h90L3LP8kAJ7KGjCV2Xfd"
+					 },
+	"Mostly Cloudy":{"user":"myplay.com",
+	                 "playlist":"1h90L3LP8kAJ7KGjCV2Xfd"
+					 }
+	}
+}

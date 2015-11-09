@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Weathify</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="spotify_playlist_button_text">Launch Spotify Playlist</string>
+    <string name="no_location_detected">No location detected. Please make sure that location is enabled on the device.</string>
+    <string name="service_not_available">Services not available</string>
+    <string name="invalid_lat_long_used">invalid geographic coordinates</string>
+    <string name="no_address_found">No address found</string>
+    <string name="address_found">Address found</string>
+    <string name="no_geocoder_available">No geocoder available</string>
+    <string name="loading_progress_bar_text">Loading....</string>
+    <string name="pause_button_text">Pause</string>
+    <string name="play_button_text">Play</string>
+    <string name="next_button_text">Next</string>
+    <string name="previous_button_text">Back</string>
+</resources>
