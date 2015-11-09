@@ -46,16 +46,19 @@ public class WeathifyManagerActivity extends AppCompatActivity implements
         PlayerNotificationCallback,
         ConnectionStateCallback {
 
+    //static variables
     private static final int REQUEST_CODE = 33;
 
     private static final String CLIENT_ID = "24f48422484c4489a3482c2a89df034f";
     private static final String REDIRECT_URI = "weathify-login://callback";
 
-    private Player mSpotifyPlayer;
-
     protected static final String TAG = "WeathifyManagerActivity";
     public static final String USER_ADDRESS = "UserAddress";
 
+    //player variable
+    private Player mSpotifyPlayer;
+
+    //location variables
     private GoogleApiClient mGoogleApiClient;
     private Location mUserCurrentLocation;
     private AddressResultReceiver mResultReceiver;
@@ -64,6 +67,8 @@ public class WeathifyManagerActivity extends AppCompatActivity implements
 
     private SplashFragment mSplashFragment;
 
+
+    //Spotify variables
     private String mSpotifyPlaylistUser;
     private String mSpotifyPlaylistID;
 
@@ -71,6 +76,7 @@ public class WeathifyManagerActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         mResultReceiver = new AddressResultReceiver(new Handler());
 
@@ -92,6 +98,7 @@ public class WeathifyManagerActivity extends AppCompatActivity implements
                 .build();
     }
 
+    //Spotify Player controls
     @Override
     public void resumeTrack() {
         mSpotifyPlayer.resume();
@@ -110,18 +117,22 @@ public class WeathifyManagerActivity extends AppCompatActivity implements
     @Override
     public void nextTrack() { mSpotifyPlayer.skipToNext(); }
 
+    //launch Spotify Player
     @Override
     public void launchSpotifyPlayer(String currentCondition) {
 
         try {
+            //get currentCondition playlist and make that the spotifyPlaylist
             String spotifyPlaylists = getSpotifyPlaylists();
             JSONObject playlists = new JSONObject(spotifyPlaylists);
             JSONObject spotifyplaylist = playlists.getJSONObject("spotifyplaylist");
             JSONObject weatherPlaylist = spotifyplaylist.getJSONObject(currentCondition);
 
+            //instantiate user and playlist portions of uripath
             mSpotifyPlaylistUser = weatherPlaylist.getString("user");
             mSpotifyPlaylistID = weatherPlaylist.getString("playlist");
 
+            //if empty, set scopes and build
             if (!mSpotifyPlaylistUser.isEmpty() & !mSpotifyPlaylistID.isEmpty()) {
 
                 AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID,
@@ -161,11 +172,14 @@ public class WeathifyManagerActivity extends AppCompatActivity implements
             AuthenticationResponse response = AuthenticationClient.getResponse(resultCode, intent);
             if (response.getType() == AuthenticationResponse.Type.TOKEN) {
                 Config playerConfig = new Config(this, response.getAccessToken(), CLIENT_ID);
+                //instantiate Player
                 mSpotifyPlayer = Spotify.getPlayer(playerConfig, this, new Player.InitializationObserver() {
                     @Override
                     public void onInitialized(Player player) {
+                        // set up player
                         mSpotifyPlayer.addConnectionStateCallback(WeathifyManagerActivity.this);
                         mSpotifyPlayer.addPlayerNotificationCallback(WeathifyManagerActivity.this);
+                        //play appropriate playlist
                         mSpotifyPlayer.play("spotify:user:" + mSpotifyPlaylistUser + ":playlist:" + mSpotifyPlaylistID);
                     }
 
@@ -178,6 +192,8 @@ public class WeathifyManagerActivity extends AppCompatActivity implements
         }
     }
 
+
+    //Spotify manditory overrides
     @Override
     public void onLoggedIn() {
         Log.d(TAG, "User logged in");

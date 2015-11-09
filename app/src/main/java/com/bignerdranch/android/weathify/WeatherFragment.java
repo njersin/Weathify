@@ -52,6 +52,7 @@ public class WeatherFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
+            //instantiate button listeners
             mOnLaunchSpotifyPlayerListener = (OnLaunchSpotifyPlayerListener) activity;
             mOnNextTrackListener = (OnNextTrackListener) activity;
             mOnPreviousTrackListener = (OnPreviousTrackListener) activity;
@@ -66,6 +67,7 @@ public class WeatherFragment extends Fragment {
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         Log.i(TAG, "onSaveInstanceState");
+        //save weather data for rotation
         savedInstanceState.putString("city", mUserAddress);
         savedInstanceState.putString("temperature", mTemperatureText.getText().toString());
         savedInstanceState.putString("weather", mWeatherText.getText().toString());
@@ -77,6 +79,7 @@ public class WeatherFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.weather_fragment, container, false);
 
+        //weather instances
         String key = getKeyFromRawResource();
         mUserAddress = getArguments().getString(WeathifyManagerActivity.USER_ADDRESS);
 
@@ -89,12 +92,14 @@ public class WeatherFragment extends Fragment {
         mFeelsLikeText = (TextView) view.findViewById(R.id.feels_like_text);
 
         if (savedInstanceState != null) {
+            //if there is something saved in the instance, load it
             mUserAddress = savedInstanceState.getString("city", "");
             mTemperatureText.setText(savedInstanceState.getString("temperature", ""));
             mWeatherText.setText(savedInstanceState.getString("weather", ""));
             mWindText.setText(savedInstanceState.getString("wind", ""));
             mFeelsLikeText.setText(savedInstanceState.getString("feelslike", ""));
         } else {
+            //else create new variables
             String city = "";
             String state = "";
             String[] addressParts = mUserAddress.split("\n");
@@ -118,6 +123,7 @@ public class WeatherFragment extends Fragment {
             }
         }
 
+        //Spotify button listeners
         mPreviousButton = (Button) view.findViewById(R.id.previous_button);
         mPreviousButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,6 +167,7 @@ public class WeatherFragment extends Fragment {
         return view;
     }
 
+    //Spotify interfaces
     interface OnLaunchSpotifyPlayerListener {
         void launchSpotifyPlayer(String currentCondition);
     }
