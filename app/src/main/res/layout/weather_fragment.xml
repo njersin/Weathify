@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
@@ -35,7 +35,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp">
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/city_row"
+        >
 
         <TextView android:id="@+id/temperature_tag"
                   android:textSize="18sp"
@@ -59,7 +61,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp">
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/temperature_row"
+        >
 
         <TextView android:id="@+id/weather_tag"
                   android:textSize="18sp"
@@ -83,7 +87,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp">
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/weather_row"
+        >
 
         <TextView android:id="@+id/wind_tag"
                   android:textSize="18sp"
@@ -107,7 +113,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp">
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/wind_row"
+        >
 
         <TextView android:id="@+id/feels_like_tag"
                   android:textSize="18sp"
@@ -125,6 +133,17 @@
             android:layout_marginLeft="10dp"/>
     </LinearLayout>
 
+    <Button
+        android:id="@+id/spotify_playlist_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/spotify_playlist_button_text"
+        android:layout_below="@+id/feels_like_row"
+        android:layout_centerHorizontal="true"
+        />
+
     <LinearLayout
         android:id="@+id/player_buttons_row"
         android:orientation="horizontal"
@@ -132,44 +151,42 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/spotify_playlist_button"
+        >
 
         <Button
+            android:layout_margin="5dp"
             android:id="@+id/previous_button"
-            android:layout_width="60dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:textSize="10dp"
-            android:text="@string/previous_button_text"/>
+            android:text="@string/previous_button_text"
+
+            />
 
         <Button
+            android:layout_margin="5dp"
             android:id="@+id/play_button"
-            android:layout_width="60dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:textSize="10dp"
             android:text="@string/play_button_text"/>
 
         <Button
+            android:layout_margin="5dp"
             android:id="@+id/pause_button"
-            android:layout_width="60dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:textSize="10dp"
             android:text="@string/pause_button_text"/>
 
         <Button
+            android:layout_margin="5dp"
             android:id="@+id/next_button"
-            android:layout_width="60dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:textSize="10dp"
             android:text="@string/next_button_text"/>
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/spotify_playlist_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:text="@string/spotify_playlist_button_text"/>
 
-</LinearLayout>
+
+</RelativeLayout>

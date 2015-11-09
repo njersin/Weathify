@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.spotify.sdk.android.player.PlayerState;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -41,6 +43,8 @@ public class WeatherFragment extends Fragment {
     private Button mLaunchSpotifyPlayerButton;
 
     private static final String TAG = "WeatherManager";
+
+
 
     OnPreviousTrackListener mOnPreviousTrackListener;
     OnResumeTrackListener mOnResumeTrackListener;
@@ -73,6 +77,7 @@ public class WeatherFragment extends Fragment {
         savedInstanceState.putString("weather", mWeatherText.getText().toString());
         savedInstanceState.putString("wind", mWindText.getText().toString());
         savedInstanceState.putString("feelslike", mFeelsLikeText.getText().toString());
+
     }
 
     @Override
